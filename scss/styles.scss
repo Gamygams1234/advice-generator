@@ -1,8 +1,8 @@
 $lightCyan: hsl(193, 38%, 86%);
 $neonGreen: hsl(150, 100%, 66%);
 // neutral
-$greyishBlue: hsl(217, 19%, 38%);
-$darkGreyishBlue: hsl(217, 19%, 24%);
+$greyishBlue: hsl(218, 20%, 24%);
+$darkGreyishBlue: hsl(220, 22%, 16%);
 
 html {
   font-size: 28px;
@@ -81,7 +81,7 @@ button:hover {
       img {
         width: 100%;
         height: auto;
-        filter: brightness(125%);
+        // filter: brightness(125%);
       }
     }
     .button {
