@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+
+  <title>Frontend Mentor | Advice generator app</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap" rel="stylesheet" />
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <link rel="stylesheet" type="text/css" href="css/reset.css" />
+  <link rel="stylesheet" type="text/css" href="css/styles.css" />
+</head>
+
+<body>
+
+  <div class="content">
+
+    <div class="advice-card">
+      <div class="advice-number">
+        Advice #<span id="advice-indication">?</span>
+
+      </div>
+
+      <div class="advice-quote">
+        <p id="advice-text">Advice goes here</p>
+      </div>
+
+      <div class="divider">
+        <img src="./images/pattern-divider-desktop.svg" alt="">
+      </div>
+      <button id="advice-button" class="button"> <img src="/images/icon-dice.svg" alt=""></button>
+
+
+    </div>
+
+
+  </div>
+
+
+  </div>
+
+
+  <!-- "
+  Advice text goes here" -->
+
+  <script>
+    const adviceQuoteText = document.getElementById("advice-text");
+    const adviceNumber = document.getElementById("advice-indication");
+    const adviceButton = document.getElementById("advice-button");
+
+    function setUp() {
+      fetch('https://api.adviceslip.com/advice')
+        .then(response => response.json())
+        .then((data) => {
+          console.log(data);
+          adviceNumber.innerHTML = data.slip.id;
+          adviceQuoteText.innerHTML = `"${data.slip.advice}"`;
+
+        })
+        .catch(err => console.error(err));
+    }
+    setUp();
+    adviceButton.addEventListener("click", () => {
+      setUp()
+    });
+
+
+  </script>
+</body>
+
+
+
+
+</html>
